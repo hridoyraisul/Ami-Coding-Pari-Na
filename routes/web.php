@@ -23,6 +23,8 @@ Route::get('/reg-page', function (){
 Route::post('/register',[\App\Http\Controllers\UserController::class,'register']);
 Route::post('/',[\App\Http\Controllers\UserController::class,'authenticate'])->name('login');
 
+//---------------------------------SECURE ROUTES AFTER LOGIN-------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('/search-number',[\App\Http\Controllers\SearchController::class,'searchNumber'])->name('search-number');
     Route::get('/logout', function (){

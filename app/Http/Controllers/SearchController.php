@@ -10,9 +10,10 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class SearchController extends Controller
 {
+    //------------------------------------------------STORE AND CHECK SEARCH NUMBER-------------------------------------
     public function searchNumber(Request $request){
         $result = explode(",", $request->input_value);
-        $resultVal = rsort($result);
+        rsort($result);
         $token = JWTAuth::FromUser(JWTAuth::user());
         if (in_array($request->search_value,$result))
         {
@@ -34,6 +35,8 @@ class SearchController extends Controller
             return view('home',compact('token','result','status'));
         }
     }
+
+    //--------------------------------------------GET ALL SEARCH INPUTS THROUGH API-------------------------------------
     public function searchAPI($user_id){
         $data = DB::table('search')->where('user_id','=',$user_id)->select('created_at', 'input_value')->get();
         $dataset = [

@@ -4,14 +4,16 @@
 
 I have built this web application with laravel framework. this project includes:
 
-- Token based authentication.
+- Token based (JWT) authentication.
 - Secure Login & Registration.
 - Search value from given input.
 - Storing input element with Sorted descending input element.
 
 
-## Technical details
+## Technical information
 
+### Framework
+- Laravel 8
 ### Database
 - MySQL [MariaDB] 8.0.5
 ### Server
@@ -27,3 +29,12 @@ http://127.0.0.1:8000/api/all-input-values/{user_id}
 - Database Name: amicodingparina
 # GitHub Link
 https://github.com/hridoyraisul/Ami-Coding-Pari-Na
+
+#Installation
+Run these command as follows:
+- git clone https://github.com/hridoyraisul/Ami-Coding-Pari-Na
+- composer install
+- cp .env.example .env
+- php artisan key:generate
+- php artisan migrate
+- php artisan serve
