@@ -25,4 +25,5 @@ I have built this web application with laravel framework. this project includes:
 - API Route for get all input values:
 http://127.0.0.1:8000/api/all-input-values/{user_id}
 - Database Name: amicodingparina
-# Ami-Coding-Pari-Na
+# GitHub Link
+https://github.com/hridoyraisul/Ami-Coding-Pari-Na
