@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Search;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    //------------------------------------------------STORE AND CHECK SEARCH NUMBER-------------------------------------
     public function searchNumber(Request $request){
         $result = explode(",", $request->input_value);
         rsort($result);
@@ -35,10 +33,8 @@ class SearchController extends Controller
             return view('home',compact('token','result','status'));
         }
     }
-
-    //--------------------------------------------GET ALL SEARCH INPUTS THROUGH API-------------------------------------
-    public function searchAPI($user_id){
-        $data = DB::table('search')->where('user_id','=',$user_id)->select('created_at', 'input_value')->get();
+    public function allSearches($user_id){
+        $data = Search::where('user_id','=',$user_id)->select('created_at', 'input_value')->get();
         $dataset = [
             'status'=>'success',
             'user_id'=>$user_id,

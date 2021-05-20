@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <title>Coding test</title>
+    <title>Khoj The Search</title>
 </head>
 <body>
 <div>
@@ -20,9 +20,9 @@
         </div>
     </nav>
     <div class="container" style="margin-top: 20px">
-        <a style="margin-bottom: 20px; text-align: left" href="{{route('logout',['token'=>\Tymon\JWTAuth\Facades\JWTAuth::fromUser($user)])}}" class="btn btn-dark">Logout</a>
+        <a style="margin-bottom: 20px; text-align: left" href="{{route('logout',['token'=>\Tymon\JWTAuth\Facades\JWTAuth::fromUser(\Tymon\JWTAuth\Facades\JWTAuth::user())])}}" class="btn btn-dark">Logout</a>
         <h2 style="text-align: center; color: cadetblue">@if($status ?? '') Search Number Again @else Search Number @endif</h2><hr>
-        <form action="{{route('search-number',['token'=>\Tymon\JWTAuth\Facades\JWTAuth::fromUser($user)])}}" method="post">
+        <form action="{{route('search-number',['token'=>\Tymon\JWTAuth\Facades\JWTAuth::fromUser(\Tymon\JWTAuth\Facades\JWTAuth::user())])}}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Input Values</label>
@@ -35,7 +35,7 @@
             <button type="submit" class="btn btn-dark">khoj</button>
         </form><br><hr>
         @if($status ?? '')
-        <h2 style="text-align: center; color: darkgreen">Result: <strong>{{$status ?? '' ?? ''}}</strong></h2>
+            <h2 style="text-align: center; color: darkgreen">Result: <strong>{{$status ?? '' ?? ''}}</strong></h2>
         @endif
     </div>
 </div>

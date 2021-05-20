@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Search extends Model
 {
     use HasFactory;
-    protected $table = 'search';
+    protected $table = 'searches';
     protected $fillable = [
         'user_id',
         'input_value',

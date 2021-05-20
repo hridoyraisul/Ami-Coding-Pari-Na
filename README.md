@@ -1,6 +1,6 @@
 
-## About app "Ami Code Pari Na" 
-###(Evaluation Project for Evident Bd Ltd)
+## About app "Ami Code Pari Na"
+### (Evaluation Project for Evident Bd Ltd)
 
 I have built this web application with laravel framework. this project includes:
 
@@ -20,12 +20,12 @@ I have built this web application with laravel framework. this project includes:
 - NGINX (1.18.0)
 ### Programming Language
 - PHP 8.0
-### Frontend Design 
+### Frontend Design
 - Bootstrap 5
 
 ## API Info
 - API Route for get all input values:
-http://127.0.0.1:8000/api/all-input-values/{user_id}
+  http://127.0.0.1:8000/api/all-searches/{user_id}
 - Database Name: amicodingparina
 # GitHub Link
 https://github.com/hridoyraisul/Ami-Coding-Pari-Na

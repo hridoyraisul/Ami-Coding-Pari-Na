@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,11 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function($view) {
-            $view->with('user', JWTAuth::user());
-        });
-        view()->composer('*', function($view) {
-            $view->with('token', JWTAuth::FromUser(JWTAuth::user()));
-        });
+        //
     }
 }

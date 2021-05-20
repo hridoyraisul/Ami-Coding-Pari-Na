@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +20,10 @@ Route::get('/reg-page', function (){
     return view('reg');
 });
 Route::post('/register',[\App\Http\Controllers\UserController::class,'register']);
-Route::post('/',[\App\Http\Controllers\UserController::class,'authenticate'])->name('login');
+Route::post('/home',[\App\Http\Controllers\UserController::class,'authenticate'])->name('login');
+Route::get('/logout',[\App\Http\Controllers\UserController::class,'logoutUser'])->name('logout');
 
-//---------------------------------SECURE ROUTES AFTER LOGIN-------------------------------------------
-//-----------------------------------------------------------------------------------------------------
 Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('/home',[\App\Http\Controllers\UserController::class,'home'])->name('home');
     Route::post('/search-number',[\App\Http\Controllers\SearchController::class,'searchNumber'])->name('search-number');
-    Route::get('/logout', function (){
-        session()->forget('user-id');
-        JWTAuth::invalidate(JWTAuth::getToken());
-        return view('welcome');
-    })->name('logout');
 });

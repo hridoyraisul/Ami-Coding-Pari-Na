@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/all-input-values/{user_id}',[\App\Http\Controllers\SearchController::class,'searchAPI']);
+Route::get('/all-searches/{user_id}',[\App\Http\Controllers\SearchController::class,'allSearches']);
